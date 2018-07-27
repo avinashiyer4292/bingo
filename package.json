@@ -1,0 +1,23 @@
+{
+  "name": "bingo",
+  "version": "1.0.0",
+  "description": "Bingo game in React, Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd react-client && npm run start",
+    "server": "nodemon server.js --ignore react-client",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "react",
+    "node",
+    "bingo"
+  ],
+  "author": "Avinash Iyer",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.6.1",
+    "express": "^4.16.3"
+  }
+}
