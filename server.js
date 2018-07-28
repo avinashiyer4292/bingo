@@ -7,16 +7,15 @@ app.get('/',(req, res)=>{
 })
 
 app.get('/getNextNumber', (req,res)=>{
-    console.log('In get next number');
     var next = apis.getNext();
-    console.log(`Next number: ${next}`);
+    //console.log(`Next number: ${next}`);
     res.status(200).send(next.toString());
 })
 
 app.get('/getAllTickets', (req,res)=>{
     var listOfSets = apis.getAllTickets();
     //console.log(`List of sets: ${JSON.stringify(listOfSets)}`)
-    res.status(200).send(listOfSets);
+    res.status(200).send(JSON.stringify(listOfSets));
 })
 
 app.listen(port, function(){
