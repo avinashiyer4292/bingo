@@ -33,9 +33,10 @@ class Game extends Component {
         data.map( (list, index) => {
             for(var i=0;i<list.length;i++){
                 if(list[i] === number){
-                    console.log(`Before number found: ${list}`)
-                    console.log(`Number found in list: ${index+1}`)
+                    //console.log(`Number found in list: ${index+1}`)
+                    //console.log(`Before number found: ${list}`)
                     list[i]='X'
+                    //console.log(`After number found: ${list}`)
                 }    
             }
         });
@@ -60,31 +61,30 @@ class Game extends Component {
         //console.log(`state list: ${JSON.stringify(this.state.listOfSets)}`)
         const listOfSets = this.state.listOfSets === null ? [] : this.state.listOfSets;
         return(
-            <div>
-                <Grid className="header">
-                    <Row>
-                        <Button onClick={this.getNextNumber}>Next</Button>
-                    </Row>
-                </Grid>
-                <Grid className="game">
-                    <Row>
-                        {listOfSets.map((set, index)=>{
-                            let id;
-                            if(index === 0)
-                                id='red'
-                            else if(index === 1)
-                                id='green'
-                            else if(index === 2)
-                                id='blue'
-                            else
-                                id='yellow'
-                            return (<Col className={'grid-col ' + id} xs={6} md={6} key={index+1}>
-                                        <Ticket index={index+1} data={set} />
-                                    </Col>);
-                        })}
-                    </Row>
-                </Grid>
-            </div>
+            
+            <Grid>
+                <Row className='content-row'>
+                    <Col xs={10} md={10}>
+                        <Grid className="game">
+                            <Row>
+                                {listOfSets.map((set, index)=>{
+                                    return (<Col className='grid-col' xs={6} md={6} key={index+1}>
+                                                <Ticket index={index+1} data={set} />
+                                            </Col>);
+                                })}
+                            </Row>
+                        </Grid>
+                    </Col>
+                    <Col style={{'borderLeft': '1px solid #cecece','boxShadow': '3px 3px 14px 6px #cecece'}} xs={2} md={2}>
+                        <Button className='btn-next' onClick={this.getNextNumber}>Next</Button>
+                    </Col>                
+                </Row>
+            </Grid>
+               
+                
+                
+                
+        
         );
     }
 }

@@ -1,5 +1,4 @@
 import React , {Component} from 'react';
-import { Col } from 'react-bootstrap';
 import '../App.css';
 
 class Cell extends Component{
@@ -30,9 +29,9 @@ class Cell extends Component{
 
         selected = selected + playerColor;
         return(
-            <Col xs={1} md={1} className={'cell '+ selected}>
+            <div className={'cell '+ selected}>
                 {value}
-            </Col>
+            </div>
         );
     }
 }

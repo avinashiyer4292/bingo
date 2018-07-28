@@ -34,7 +34,7 @@ class Ticket extends Component {
         let { index, data } = this.state;
         data === null ? [] : data
 
-        console.log(`Data in ticket: ${data}`)
+        //console.log(`Data in ticket: ${data}`)
         let cell, set=[];
         if(data){
             cell = data.map( (curr, idx, array) => {
@@ -56,7 +56,7 @@ class Ticket extends Component {
         return(
             <div className='ticket'>
                 {cell}
-                <Button onClick = {this.checkClaim}>Claim Bingo</Button>
+                <Button className='btn-claim' onClick = {this.checkClaim}>Claim Bingo</Button>
             </div>
         );
     }
