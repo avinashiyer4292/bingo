@@ -5,7 +5,7 @@ import '../App.css';
 
 class TicketRow extends Component{
     constructor(props){
-        super(props)
+        super(props);
         this.state={
             zone: null,
             rowData: []
@@ -13,16 +13,16 @@ class TicketRow extends Component{
     }
 
     componentDidMount(){
-        this.setState({zone: this.props.zone, rowData: this.props.data})
+        this.setState({zone: this.props.zone, rowData: this.props.data});
     }
 
     render(){
-        let { rowData, zone } = this.state;
-        console.log(`Ticket row data: ${rowData}`);
+        let { zone, data } = this.props;
+        //console.log(`Ticket row data: ${data}`);
         return(
             <Row className='ticket-row'>
             {
-            rowData.map( (curr, index) =>{
+            data.map( (curr, index) =>{
                     return( <Cell value={curr} key={index} zone={zone} />);
                 })
             }
