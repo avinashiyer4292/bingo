@@ -25,11 +25,8 @@ app.get('/getAllTickets', (req,res)=>{
 })
 
 app.post('/claimBingo', (req, res)=>{
-    //console.log(`Request received: ${req.body.data}`);
     var list = req.body.data;
-    //console.log(`List obtained in post: ${list}, ${JSON.stringify(list)}`);
     var isClaimTrue = apis.checkBingoClaim(list);
-    console.log(`isClaimTrue: ${isClaimTrue}`)
     res.send(isClaimTrue.toString());
 })
 
