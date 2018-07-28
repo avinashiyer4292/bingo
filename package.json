@@ -13,7 +13,7 @@
     "start-local": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
     "start": "node server.js",
     "setup": "npm i && cd react-client && npm i && cd .. ",
-    "heroku-postbuild": "cd react-client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd react-client/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build && cd .."
   },
   "cacheDirectories": [
     "node_modules",
