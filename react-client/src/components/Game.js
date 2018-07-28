@@ -20,7 +20,6 @@ class Game extends Component {
         fetch('/getAllTickets')
             .then(response=> response.json())
             .then(json => {
-                //console.log(`Data: ${json}`)
                 this.setState({listOfSets: json});
         })
             .catch(err => console.log(`Error occurred in fetching data: ${err}`))
@@ -29,14 +28,10 @@ class Game extends Component {
     checkSelectedNumber(number){
         console.log(`Selected number: ${number}`)
         let data = this.state.listOfSets;
-        //console.log(`List of sets before changing: ${list}`)
         data.map( (list, index) => {
             for(var i=0;i<list.length;i++){
                 if(list[i] === number){
-                    //console.log(`Number found in list: ${index+1}`)
-                    //console.log(`Before number found: ${list}`)
                     list[i]='X'
-                    //console.log(`After number found: ${list}`)
                 }    
             }
         });
@@ -58,10 +53,9 @@ class Game extends Component {
 
     }
     render(){
-        //console.log(`state list: ${JSON.stringify(this.state.listOfSets)}`)
+
         const listOfSets = this.state.listOfSets === null ? [] : this.state.listOfSets;
-        return(
-            
+        return(            
             <Grid>
                 <Row className='content-row'>
                     <Col xs={10} md={10}>
@@ -75,16 +69,15 @@ class Game extends Component {
                             </Row>
                         </Grid>
                     </Col>
-                    <Col style={{'borderLeft': '1px solid #cecece','boxShadow': '3px 3px 14px 6px #cecece'}} xs={2} md={2}>
-                        <Button className='btn-next' onClick={this.getNextNumber}>Next</Button>
+                    <Col style={{'borderLeft': '1px solid #cecece','boxShadow': '3px 3px 14px 6px #cecece','textAlign':'center'}} xs={2} md={2}>
+                        <h3 style={{'marginTop':'5%'}}>Bingo</h3>
+                        <Button className='btn-next' onClick={this.getNextNumber}>Call</Button>
+                        <h4>Current number is</h4>
+                        <h2>{this.state.numberCalled}</h2>
                     </Col>                
                 </Row>
             </Grid>
-               
-                
-                
-                
-        
+
         );
     }
 }
