@@ -12,7 +12,7 @@ These instructions will get you a copy of the project up and running on your loc
 You'll require the latest stable version of node and npm installed on your machine. https://nodejs.org/en/
 Once installed, run the following commands:
 
-`npm i nodemon -g react-scripts`
+`npm i nodemon react-scripts -g`
 
 ### Installing
 ```
