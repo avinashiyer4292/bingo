@@ -13,7 +13,8 @@ You'll require the latest stable version of node and npm installed on your machi
 Once installed, run the following commands:
 
 ### Installing
-```npm i nodemon react-scripts -g
+```
+npm i nodemon react-scripts -g
 git clone https://github.com/avinashiyer4292/bingo.git
 cd bingo
 npm run setup
