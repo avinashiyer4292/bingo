@@ -8,7 +8,6 @@ var getNextNumber = ()=>{
     while(set.has(number)){
         number = getRandomNumber();
     }
-    //console.log(`Number: ${number} , set: ${JSON.stringify(set)}`);
     set.add(number);
     return number;
 }
@@ -19,6 +18,7 @@ var getRandomNumber = () => {
     return Math.floor (Math.random() * (100)) + 1;
 }
 
+//This function gets all 25 values for each ticket, is called the first time application starts
 var getAllTickets = () => {
     var listOfSets=[]
     for(var i=0;i<4;i++){
@@ -35,32 +35,13 @@ var getAllTickets = () => {
     return listOfSets;
 }
 
-
+// This function checks whether bingo claim made by any player is true or not
+// For the list of values received for that particular ticket, we check if each value X,
+// If even one value is not X, the claim is false 
 var checkBingoClaim = (list) => {
-
-    // console.log(`List is : ${list}, ${JSON.stringify(list)}`)
-    // let res = list.map( (curr, index) => {
-    //     console.log(`Curr : ${curr}`)
-    //     if(curr != 'X'){
-    //         console.log(`oH BCCCCC!!!`)
-    //         return 1;
-    //     }
-            
-    // });
-
     let result = list.every( val => {
         return val === 'X'
-    }) 
-
-    // let i=0, res;
-    // while(i < list.length){
-    //     if(list[i]!= 'X'){
-
-    //         res= 1;
-    //     }
-    //     i++;
-    // }
-    console.log(`Result :${result}`)
+    })
     return (result == false) ? 1 : 0;
 }
 
