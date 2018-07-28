@@ -151,3 +151,7 @@ button:hover{
   font-weight: bold;
   font-size: 18px;
 }
+.modal-msg{
+  display: table;
+  margin: 0 auto;
+}

@@ -14,6 +14,7 @@ class Game extends Component {
         }
         this.getNextNumber  = this.getNextNumber.bind(this);
         this.checkSelectedNumber = this.checkSelectedNumber.bind(this);
+        //this.showMessage = this.showMessage.bind(this);
         this.hideMessage = this.hideMessage.bind(this);
     }
 
@@ -28,6 +29,7 @@ class Game extends Component {
     }
 
     checkSelectedNumber(number){
+        console.log(`Selected number: ${number}`)
         let data = this.state.listOfSets;
         data.forEach( list => {
             for(var i=0;i<list.length;i++){
@@ -38,6 +40,10 @@ class Game extends Component {
         });
         return data;
     }
+
+    //  showMessage(){
+        
+    // }
 
     hideMessage(){
         this.setState({numberCalled: 0})
@@ -66,22 +72,22 @@ class Game extends Component {
             numberCalled = this.state.numberCalled;
             if(numberCalled === -1)
                 return(<Modal show={true}>
-                            <Modal.Header>
-                                <h2>Bingo</h2>
-                            </Modal.Header>
-                            <Modal.Body>
-                            <h4>How to play</h4>
-                            <ul>
-                                <li>Each ticket on the screen corresponds to one player</li>
-                                <li>Click the <span className='span-style'>Call</span> button on the right to call out the next number</li>
-                                <li>The called number is marked <span className='span-style'>'X'</span> on each of the tickets, if found</li>
-                                <li>Player whose ticket has 'X' marked at each spot can claim victory by clicking the <span className='span-style'>Claim Bingo</span> button</li>
-                            </ul>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button onClick={this.hideMessage}>Close</Button>
-                            </Modal.Footer>
-                        </Modal>);
+                    <Modal.Header>
+                        <h2>Bingo</h2>
+                    </Modal.Header>
+                    <Modal.Body>
+                    <h4>How to play</h4>
+                    <ul>
+                        <li>Each ticket on the screen corresponds to one player</li>
+                        <li>Click the <span className='span-style'>Call</span> button on the right to call out the next number</li>
+                        <li>The called number is marked <span className='span-style'>'X'</span> on each of the tickets, if found</li>
+                        <li>Player whose ticket has 'X' marked at each spot can claim victory by clicking the <span className='span-style'>Claim Bingo</span> button</li>
+                    </ul>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button onClick={this.hideMessage}>Close</Button>
+                    </Modal.Footer>
+            </Modal>);
                 
                  
             return(

@@ -53,22 +53,21 @@ class Ticket extends Component {
                 }
             });
         }
-        let fade = claim === 0 ? ' fade' : '',
-            disabled = claim === 0 ? true : false;
+    
         if(claim === 0)
             return(
-                <div className='win-message'>
-                    <h2><span className='span-style'>Player {index}</span> is the winner!! Game over!!!</h2>
-                </div>
+                <Modal show={true} backdrop={'static'} keyboard={false}>
+                    <Modal.Body>
+                        <h3 className='modal-msg'><span className='span-style'>Player {index}</span> is the winner!! Game over!!!</h3>
+                    </Modal.Body>
+              </Modal>
             );
          
         else if(claim === 1)
                 return(
-                    <Modal
-                    show={true}
-                    dialogClassName="custom-modal">
+                    <Modal show={true}>
                         <Modal.Body>
-                        <h4>Bingo claim by <span className='span-style'>Player {index}</span> is wrong!! Game will continue!!!</h4>
+                        <h4 className='modal-msg'>Bingo claim by <span className='span-style'>Player {index}</span> is wrong!! Game will continue!!!</h4>
                         </Modal.Body>
                         <Modal.Footer>
                             <Button onClick={this.hideModal}>Close</Button>
@@ -77,10 +76,10 @@ class Ticket extends Component {
                 );
         
         return(
-            <div className={'ticket' + fade}>
+            <div className='ticket'>
                 <div className='player-name'>Player {index}</div>
                 {cell}
-                <Button className='btn-claim' onClick = {this.checkBingoClaim} disabled={disabled}>Claim Bingo</Button>
+                <Button className='btn-claim' onClick = {this.checkBingoClaim}>Claim Bingo</Button>
             </div>
         );
         
