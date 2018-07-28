@@ -21,18 +21,21 @@ app.use(bodyParser.json());
 
 app.get('/getNextNumber', (req,res)=>{
     var next = apis.getNext();
+    console.log(`In server response: next number : ${next.toString()}`)
     res.send(next.toString());
 })
 
 
 app.get('/getAllTickets', (req,res)=>{
     var listOfSets = apis.getAllTickets();
+    console.log(`In server response: list of sets: ${listOfSets} , ${JSON.stringify(listOfSets)}`)
     res.send(JSON.stringify(listOfSets));
 })
 
 app.post('/claimBingo', (req, res)=>{
     var list = req.body.data;
     var isClaimTrue = apis.checkBingoClaim(list);
+    console.log(`In server response: is claim true: ${isClaimTrue}`)
     res.send(isClaimTrue.toString());
 })
 
