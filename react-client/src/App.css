@@ -1,28 +1,122 @@
+html, body, #root, #root>div, .row{
+  height:100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.header{
+    margin: 0! important;
+    width: 100% !important;
+    border-bottom: 1px solid #c3c3c3;
+    height: 10%;
+    box-shadow: 0px 2px 1px -2px #dcd8d8;
+}
+.game{
+  margin: 3% 0 0 !important;
+    width: 100% !important;
+    height: 85%;
+    
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.grid-col{
+  height: 50%;
+  margin-bottom: 2%;
+}
+.red{
+  /* background-color: rgb(241, 168, 168); */
+  border: 1px solid rgb(241, 89, 89);
+}
+.green{
+  /* background-color: rgb(191, 241, 168); */
+  border: 1px solid rgb(65, 179, 71);
+}
+.blue{
+  /* background-color: rgb(168, 224, 241); */
+  border: 1px solid rgb(89, 99, 241);
 }
 
-.App-title {
-  font-size: 1.5em;
+.yellow{
+  /* background-color: rgb(241, 234, 168); */
+  border: 1px solid rgb(241, 200, 89);
 }
 
-.App-intro {
-  font-size: large;
+.game{
+  margin-top: 5%;
 }
+.ticket{
+  height: 100%;
+  width: 100%;
+}
+.ticket-row{
+  height: 15% !important;
+  margin: 0 auto;
+  display: table;
+  width: 50%;
+}
+
+.cell{
+  color: #7c7c7c;
+  display: block;
+  float: left;
+  height: 97% !important;
+  border-radius: 5%;
+  margin: 1px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 1.5% 0;  
+  width: 19%;
+}
+
+.selected-red{
+  background-color: rgb(241, 89, 89) !important;
+  border: 1px solid #fff !important;
+  color: #fff !important;
+}
+
+.selected-green{
+  background-color: rgb(65, 179, 71) !important;
+  border: 1px solid #fff !important;
+  color: #fff !important;
+}
+
+.selected-blue{
+  background-color: rgb(89, 99, 241);
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.selected-yellow{
+  background-color: rgb(241, 200, 89);
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+button{
+  background-image: none !important;
+  display: block !important;
+  margin: 2% auto !important;
+}
+
+.btn-next{
+  /* background-color: #6722c2; */
+  color: #000;
+  font-size: 15px;
+  font-style: bold;
+  margin: 25% auto !important;
+}
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.content-row > div{
+  height: 100%;
 }
