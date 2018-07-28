@@ -9,13 +9,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You'll require the latest stable version of node and npm installed on your machine. https://nodejs.org/en/
+You'll require the latest stable version of node and npm installed on your machine. https://nodejs.org/en/ .You might also require Xcode to be installed , if you're on MacOS.
 Once installed, run the following commands:
 
-`npm i nodemon react-scripts -g`
-
 ### Installing
-```
+```npm i nodemon react-scripts -g
 git clone https://github.com/avinashiyer4292/bingo.git
 cd bingo
 npm run setup
