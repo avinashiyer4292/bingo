@@ -9,7 +9,8 @@ class Game extends Component {
         this.state={
             numberCalled: 0,
             listOfSets: [],
-            selectedNumbers: []
+            selectedNumbers: [],
+            previousNumbers: []
         }
         this.getNextNumber  = this.getNextNumber.bind(this);
         this.checkSelectedNumber = this.checkSelectedNumber.bind(this);
@@ -28,7 +29,7 @@ class Game extends Component {
     checkSelectedNumber(number){
         console.log(`Selected number: ${number}`)
         let data = this.state.listOfSets;
-        data.map( (list, index) => {
+        data.forEach( list => {
             for(var i=0;i<list.length;i++){
                 if(list[i] === number){
                     list[i]='X'
@@ -41,20 +42,23 @@ class Game extends Component {
     
     getNextNumber(){
         fetch('/getNextNumber').then(response => response.json())
-                               .then(json => this.setState(
-                                   {
-                                        numberCalled: json,
-                                        selectedNumbers: [...this.state.selectedNumbers, json],
-                                        listOfSets: this.checkSelectedNumber(json)
-
-                                    }
-                                ))
-                                .catch(err => console.log(`Error fetching next number!!!`))
+                               .then(json => {
+                                if(this.state.previousNumbers.length > 5)
+                                    this.state.previousNumbers.shift();
+                                this.setState({
+                                         numberCalled: json,
+                                         selectedNumbers: [...this.state.selectedNumbers, json],
+                                         listOfSets: this.checkSelectedNumber(json),
+                                         previousNumbers: [...this.state.previousNumbers, json]
+                                     }
+                                 )
+                               })
+                               .catch(err => console.log(`Error fetching next number!!!`))
 
     }
     render(){
-
-        const listOfSets = this.state.listOfSets === null ? [] : this.state.listOfSets;
+        let listOfSets = this.state.listOfSets === null ? [] : this.state.listOfSets,
+            previousNumbers = this.state.previousNumbers;
         return(            
             <Grid>
                 <Row className='content-row'>
@@ -74,6 +78,14 @@ class Game extends Component {
                         <Button className='btn-next' onClick={this.getNextNumber}>Call</Button>
                         <h4>Current number is</h4>
                         <h2>{this.state.numberCalled}</h2>
+                        <div className='previous-numbers'>
+                                <h4>Previous numbers</h4>
+                                {previousNumbers.map( (curr , index) => {
+                                    return(
+                                        <div className="circle" key={index}>{curr}</div>
+                                    );
+                                })}
+                        </div>
                     </Col>                
                 </Row>
             </Grid>
