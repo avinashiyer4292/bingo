@@ -8,7 +8,7 @@
     "client": "cd react-client && npm run start",
     "server": "nodemon server.js --ignore react-client",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "setup": "npm i && cd react-client && npm i && cd.. "
+    "setup": "npm i && cd react-client && npm i && cd .. "
   },
   "keywords": [
     "react",
