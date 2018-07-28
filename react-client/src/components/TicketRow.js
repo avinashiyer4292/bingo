@@ -17,7 +17,6 @@ class TicketRow extends Component{
 
     render(){
         let { zone, data } = this.props;
-        //console.log(`Ticket row data: ${data}`);
         return(
             <div className='ticket-row'>
             {

@@ -9,10 +9,6 @@ app.use(bodyParser.urlencoded({
  }));
 app.use(bodyParser.json());
 
-app.get('/',(req, res)=>{
-    //res.send("Hey there!!!")
-})
-
 app.get('/getNextNumber', (req,res)=>{
     var next = apis.getNext();
     res.send(next.toString());
