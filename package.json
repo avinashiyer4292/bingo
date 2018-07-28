@@ -7,8 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd react-client && npm run start",
     "server": "nodemon server.js --ignore react-client",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "setup": "npm i && cd react-client && npm i && cd .. "
+    "start-local": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start": "node server.js",
+    "setup": "npm i && cd react-client && npm i && cd .. ",
+    "heroku-postbuild": "cd react-client && npm i && npm i --only=dev --no-shrinkwrap && npm run build"
   },
   "keywords": [
     "react",
