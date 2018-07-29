@@ -3,6 +3,10 @@ This is a simple Bingo game created in React, Node.js
 
 It shows 4 tickets on screen representing 4 players. Each time a number is called, each of the 4 tickets are checked if they have that number, and is crossed out. A player whose ticket has all boxes crossed out can claim Bingo!
 
+Try it out here: https://bingo-mp-react.herokuapp.com/
+
+
+
 <img width="1510" alt="screen shot 2018-07-28 at 4 55 10 pm" src="https://user-images.githubusercontent.com/13279942/43361618-294de80a-9288-11e8-823e-5934bf0b9702.png">
 
 <img width="1508" alt="screen shot 2018-07-28 at 4 55 27 pm" src="https://user-images.githubusercontent.com/13279942/43361619-2c0696f0-9288-11e8-98f5-333dff1882c9.png">
